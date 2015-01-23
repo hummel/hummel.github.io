@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Jacob Hummel Archive </title>
+  <title>Making Maps with Python</title>
   <meta name="author" content="Jacob Hummel">
 
   <link href="/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1791,58 +1791,53 @@ jQuery(document).ready(function($) {
   <div id="main">
     <div id="content">
 <div>
-	<article role="article">
-    	<header>
-    		<h1 class="entry-title">Blog Archive</h1>
-    	</header>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Making Maps with Python</h1>
+      <p class="meta"><time datetime="2015-01-23T04:00:00" pubdate>Jan 23, 2015</time></p>
+</header>
 
-    	<div id="blog-archives">
-            <h2>2014</h2>
-                    <article>
-                        <h1><a href="blog/2014/10/04/first-post/">First Post</a></h1>
-                        <time datetime="2014-10-04 05:00:00" pubdate>
-                            <span class="month">Oct</span>
-                            <span class="day">04</span>
-                            <span class="year">2014</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='/category/misc.html'>misc</a>
-                                
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="blog/2014/10/09/notebook example/">Blogging with IPython Notebooks</a></h1>
-                        <time datetime="2014-10-09 00:00:00" pubdate>
-                            <span class="month">Oct</span>
-                            <span class="day">09</span>
-                            <span class="year">2014</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='/category/misc.html'>misc</a>
-                                
-                            </span>
-                        </footer>
-                    </article>
-            <h2>2015</h2>
-                    <article>
-                        <h1><a href="blog/2015/01/23/Maps with Python/">Making Maps with Python</a></h1>
-                        <time datetime="2015-01-23 04:00:00" pubdate>
-                            <span class="month">Jan</span>
-                            <span class="day">23</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='/category/misc.html'>misc</a>
-                                
-                            </span>
-                        </footer>
-                    </article>
-	    </div>
-    </article>
+  <div class="entry-content"><p>I made a map!  I recently found a great tutorial on <a href="http://beneathdata.com">Beneath Data</a> on how to visualize your location history from Google.  I've been wanting to do something like this for a while, so I downloaded my location history for the past few years using <a href="https://www.google.com/settings/takeout">Takeout</a>, and made a quick plot of all the flights I've taken recently.</p>
+<p>To do this, you'll need the following Python packages:</p>
+<ul>
+<li><a href="http://matplotlib.org/">Matplotlib</a> + <a href="http://matplotlib.org/basemap">Basemap</a></li>
+<li><a href="http://www.numpy.org/">Numpy</a></li>
+<li><a href="http://pandas.pydata.org/">Pandas</a></li>
+<li><a href="https://pypi.python.org/pypi/Shapely">Shapely</a></li>
+<li><a href="https://pypi.python.org/pypi/Fiona">Fiona</a></li>
+<li><a href="https://pypi.python.org/pypi/descartes">Descartes</a></li>
+</ul>
+<p>Far and above the easiest way to acquire these is to use the <code>conda</code> package manager provided by <a href="https://store.continuum.io/cshop/anaconda/">Continuum Analytics</a> with the <a href="http://docs.continuum.io/anaconda/">Anaconda</a> Python Distribution. Once you've got Anaconda installed (which includes matplotlib, numpy and pandas), you can install (almost) all the necessary packages as follows:</p>
+<div class="highlight"><pre><span class="n">conda</span> <span class="n">install</span> <span class="n">basemap</span> <span class="n">shapely</span> <span class="n">fiona</span>
+</pre></div>
+
+
+<p>Unfortunately <code>descartes</code> isn't available in Continuum's official repositories, but it <em>is</em> available from the community repositories on <a href="binstar.org">binstar.org</a>. Go there, search for 'descartes', and install it from the repository of your choice or just do the following:</p>
+<p>On Linux:</p>
+<div class="highlight"><pre>      <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">https</span><span class="o">:</span><span class="c1">//conda.binstar.org/auto descartes</span>
+</pre></div>
+
+
+<p>On Mac OS X:</p>
+<div class="highlight"><pre>      <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">https</span><span class="o">:</span><span class="c1">//conda.binstar.org/asmeurer descartes</span>
+</pre></div>
+
+
+<p>With everything installed, it was easy to make a map showing all the flights I've taken in the past ~4 or so years by following this <a href="http://beneathdata.com/how-to/visualizing-my-location-history/">tutorial</a> (scroll down to the second half).  Awesome!</p>
+<p><img src="/images/flights.png" alt="All flights in the past three years" title="All flights in the past three years"></p>
+<p>My trip to Japan for the <a href="http://tpweb2.phys.konan-u.ac.jp/~FirstStar4/">First Stars IV</a> conference dominates the first map; zooming in to just North America helps a bit:</p>
+<p><img src="/images/US_flights.png" alt="Western Hemisphere Flights" title="Western Hemisphere Flights"></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Jacob Hummel</span>
+  </span>
+<time datetime="2015-01-23T04:00:00" pubdate>Jan 23, 2015</time></p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hummel.github.io/blog/2015/01/23/Maps with Python/" data-via="jhummel512" data-counturl="http://hummel.github.io/blog/2015/01/23/Maps with Python/" >Tweet</a>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+</div>    </footer>
+  </article>
+
 </div>
 <aside class="sidebar">
   <section>

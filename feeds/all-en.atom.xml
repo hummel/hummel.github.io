@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jacob Hummel</title><link href="http://hummel.github.io/" rel="alternate"></link><link href="/feeds/all-en.atom.xml" rel="self"></link><id>http://hummel.github.io/</id><updated>2014-10-09T00:00:00-05:00</updated><entry><title>Blogging with IPython Notebooks</title><link href="http://hummel.github.io/blog/2014/10/09/notebook%20example/" rel="alternate"></link><updated>2014-10-09T00:00:00-05:00</updated><author><name>Jacob Hummel</name></author><id>tag:hummel.github.io,2014-10-09:blog/2014/10/09/notebook example/</id><summary type="html">&lt;p&gt;The following is a brief tutorial written for my students on grabbing FITS images from the Sloan Digitial Sky Survey then loading and displaying them in python using tools from the &lt;a href="http://www.astropy.org/"&gt;Astropy&lt;/a&gt; Project.  It should make for a good test case.  &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jacob Hummel</title><link href="http://hummel.github.io/" rel="alternate"></link><link href="/feeds/all-en.atom.xml" rel="self"></link><id>http://hummel.github.io/</id><updated>2015-01-23T04:00:00-06:00</updated><entry><title>Making Maps with Python</title><link href="http://hummel.github.io/blog/2015/01/23/Maps%20with%20Python/" rel="alternate"></link><updated>2015-01-23T04:00:00-06:00</updated><author><name>Jacob Hummel</name></author><id>tag:hummel.github.io,2015-01-23:blog/2015/01/23/Maps with Python/</id><summary type="html">&lt;p&gt;I made a map!  I recently found a great tutorial on &lt;a href="http://beneathdata.com"&gt;Beneath Data&lt;/a&gt; on how to visualize your location history from Google.  I've been wanting to do something like this for a while, so I downloaded my location history for the past few years using &lt;a href="https://www.google.com/settings/takeout"&gt;Takeout&lt;/a&gt;, and made a quick plot of all the flights I've taken recently.&lt;/p&gt;
+&lt;p&gt;To do this, you'll need the following Python packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://matplotlib.org/"&gt;Matplotlib&lt;/a&gt; + &lt;a href="http://matplotlib.org/basemap"&gt;Basemap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.numpy.org/"&gt;Numpy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pandas.pydata.org/"&gt;Pandas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/Shapely"&gt;Shapely&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/Fiona"&gt;Fiona&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/descartes"&gt;Descartes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Far and above the easiest way to acquire these is to use the &lt;code&gt;conda&lt;/code&gt; package manager provided by &lt;a href="https://store.continuum.io/cshop/anaconda/"&gt;Continuum Analytics&lt;/a&gt; with the &lt;a href="http://docs.continuum.io/anaconda/"&gt;Anaconda&lt;/a&gt; Python Distribution. Once you've got Anaconda installed (which includes matplotlib, numpy and pandas), you can install (almost) all the necessary packages as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;conda&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;basemap&lt;/span&gt; &lt;span class="n"&gt;shapely&lt;/span&gt; &lt;span class="n"&gt;fiona&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Unfortunately &lt;code&gt;descartes&lt;/code&gt; isn't available in Continuum's official repositories, but it &lt;em&gt;is&lt;/em&gt; available from the community repositories on &lt;a href="binstar.org"&gt;binstar.org&lt;/a&gt;. Go there, search for 'descartes', and install it from the repository of your choice or just do the following:&lt;/p&gt;
+&lt;p&gt;On Linux:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;      &lt;span class="n"&gt;conda&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//conda.binstar.org/auto descartes&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;On Mac OS X:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;      &lt;span class="n"&gt;conda&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//conda.binstar.org/asmeurer descartes&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;With everything installed, it was easy to make a map showing all the flights I've taken in the past ~4 or so years by following this &lt;a href="http://beneathdata.com/how-to/visualizing-my-location-history/"&gt;tutorial&lt;/a&gt; (scroll down to the second half).  Awesome!&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/flights.png" alt="All flights in the past three years" title="All flights in the past three years"&gt;&lt;/p&gt;
+&lt;p&gt;My trip to Japan for the &lt;a href="http://tpweb2.phys.konan-u.ac.jp/~FirstStar4/"&gt;First Stars IV&lt;/a&gt; conference dominates the first map; zooming in to just North America helps a bit:&lt;/p&gt;
+&lt;p&gt;&lt;img src="/images/US_flights.png" alt="Western Hemisphere Flights" title="Western Hemisphere Flights"&gt;&lt;/p&gt;</summary></entry><entry><title>Blogging with IPython Notebooks</title><link href="http://hummel.github.io/blog/2014/10/09/notebook%20example/" rel="alternate"></link><updated>2014-10-09T00:00:00-05:00</updated><author><name>Jacob Hummel</name></author><id>tag:hummel.github.io,2014-10-09:blog/2014/10/09/notebook example/</id><summary type="html">&lt;p&gt;The following is a brief tutorial written for my students on grabbing FITS images from the Sloan Digitial Sky Survey then loading and displaying them in python using tools from the &lt;a href="http://www.astropy.org/"&gt;Astropy&lt;/a&gt; Project.  It should make for a good test case.  &lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Everything below this point is an IPython notebook and can be downloaded &lt;a href="http://hummel.github.io/downloads/notebooks/astropy-fits.ipynb"&gt;here&lt;/a&gt;, or viewed statically &lt;a href="http://nbviewer.ipython.org/url/hummel.github.io/downloads/notebooks/astropy-fits.ipynb"&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
