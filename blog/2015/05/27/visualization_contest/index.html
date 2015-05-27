@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Making Maps with Python</title>
+  <title>Visualizing Science</title>
   <meta name="author" content="Jacob Hummel">
 
   <link href="/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1768,47 +1768,21 @@ init_mathjax();
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Making Maps with Python</h1>
-      <p class="meta"><time datetime="2015-01-23T04:00:00" pubdate>Jan 23, 2015</time></p>
+      <h1 class="entry-title">Visualizing Science</h1>
+      <p class="meta"><time datetime="2015-05-27T04:00:00" pubdate>May 27, 2015</time></p>
 </header>
 
-  <div class="entry-content"><p>I made a map!  I recently found a great tutorial on <a href="http://beneathdata.com">Beneath Data</a> on how to visualize your location history from Google.  I've been wanting to do something like this for a while, so I downloaded my location history for the past few years using <a href="https://www.google.com/settings/takeout">Takeout</a>, and made a quick plot of all the flights I've taken recently.</p>
-<p>To do this, you'll need the following Python packages:</p>
-<ul>
-<li><a href="http://matplotlib.org/">Matplotlib</a> + <a href="http://matplotlib.org/basemap">Basemap</a></li>
-<li><a href="http://www.numpy.org/">Numpy</a></li>
-<li><a href="http://pandas.pydata.org/">Pandas</a></li>
-<li><a href="https://pypi.python.org/pypi/Shapely">Shapely</a></li>
-<li><a href="https://pypi.python.org/pypi/Fiona">Fiona</a></li>
-<li><a href="https://pypi.python.org/pypi/descartes">Descartes</a></li>
-</ul>
-<p>Far and above the easiest way to acquire these is to use the <code>conda</code> package manager provided by <a href="https://store.continuum.io/cshop/anaconda/">Continuum Analytics</a> with the <a href="http://docs.continuum.io/anaconda/">Anaconda</a> Python Distribution. Once you've got Anaconda installed (which includes matplotlib, numpy and pandas), you can install (almost) all the necessary packages as follows:</p>
-<div class="highlight"><pre><span class="n">conda</span> <span class="n">install</span> <span class="n">basemap</span> <span class="n">shapely</span> <span class="n">fiona</span>
-</pre></div>
-
-
-<p>Unfortunately <code>descartes</code> isn't available in Continuum's official repositories, but it <em>is</em> available from the community repositories on <a href="binstar.org">binstar.org</a>. Go there, search for 'descartes', and install it from the repository of your choice or just do the following:</p>
-<p>On Linux:</p>
-<div class="highlight"><pre>      <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">https</span><span class="o">:</span><span class="c1">//conda.binstar.org/auto descartes</span>
-</pre></div>
-
-
-<p>On Mac OS X:</p>
-<div class="highlight"><pre>      <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">https</span><span class="o">:</span><span class="c1">//conda.binstar.org/asmeurer descartes</span>
-</pre></div>
-
-
-<p>With everything installed, it was easy to make a map showing all the flights I've taken in the past ~4 or so years by following this <a href="http://beneathdata.com/how-to/visualizing-my-location-history/">tutorial</a> (scroll down to the second half).  Awesome!</p>
-<p><img src="/images/flights.png" alt="All flights in the past three years" title="All flights in the past three years"></p>
-<p>My trip to Japan for the <a href="http://tpweb2.phys.konan-u.ac.jp/~FirstStar4/">First Stars IV</a> conference dominates the first map; zooming in to just North America helps a bit:</p>
-<p><img src="/images/US_flights.png" alt="Western Hemisphere Flights" title="Western Hemisphere Flights"></p></div>
+  <div class="entry-content"><p>The past three years, the UT College of Natural Sciences has sponsored a science visualization contest.  Cosmological simulations appear to be quite popular, having been featured in <a href="https://cns.utexas.edu/news/visualizing-science-2013">both</a> <a href="https://cns.utexas.edu/news/visualizing-science-2014">previous</a> contests. Here's my entry for this year's contest:
+<img src="/images/cosmic_structure_zoom.png" alt="Zooming in from the cosmic web to individual stellar cores. 10,000,000X magnification." title="Zooming in from the cosmic web to individual stellar cores. 10,000,000X magnification."> <a href="/images/cosmic_structure_zoom.png">Click to embiggen.</a></p>
+<p>This image shows the formation of the first stars in this patch of the Universe, roughly 100 million years after the Big Bang (13.7 billion years ago). Color represents the density of gas collapsing under gravity, with brighter colors representing higher densities. Starting from cosmological scales in the upper left, each panel zooms in by a factor of 10. Along the way, we see the filamentary structure of the cosmic web on the largest scales, gas piling up in a dark matter 'minihalo' at the intersection of several of these filaments, virializing, and finally forming an accretion disk surrounding two high-density clumps of gas destined to become massive Population III stars in the bottom right panel. Those two white dots in the bottom right panel are roughly the size of the Kuiper belt that surrounds our Sun. The upper left panel, on the other hand, is over 16,000 light years across, and 10 million times larger.</p>
+<p>This </p></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">Jacob Hummel</span>
   </span>
-<time datetime="2015-01-23T04:00:00" pubdate>Jan 23, 2015</time></p><div class="sharing">
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hummel.github.io/blog/2015/01/23/Maps with Python/" data-via="astrohummel" data-counturl="http://hummel.github.io/blog/2015/01/23/Maps with Python/" >Tweet</a>
+<time datetime="2015-05-27T04:00:00" pubdate>May 27, 2015</time></p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hummel.github.io/blog/2015/05/27/visualization_contest/" data-via="astrohummel" data-counturl="http://hummel.github.io/blog/2015/05/27/visualization_contest/" >Tweet</a>
     <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
 </div>    </footer>
   </article>
@@ -1860,9 +1834,9 @@ init_mathjax();
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'hummel';
-          var disqus_identifier = '/blog/2015/01/23/Maps with Python/';
-          var disqus_url = 'http://hummel.github.io/blog/2015/01/23/Maps with Python/';
-          var disqus_title = 'Making Maps with Python';
+          var disqus_identifier = '/blog/2015/05/27/visualization_contest/';
+          var disqus_url = 'http://hummel.github.io/blog/2015/05/27/visualization_contest/';
+          var disqus_title = 'Visualizing Science';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

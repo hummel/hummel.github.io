@@ -1700,17 +1700,9 @@ div.text_cell_render {
 }
 
 img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
-
-div.collapseheader {
-    width=100%;
-    background-color:#d3d3d3;
-    padding: 2px;
-    cursor: pointer;
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-}
 </style>
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 <script type="text/javascript">
 init_mathjax = function() {
     if (window.MathJax) {
@@ -1730,23 +1722,6 @@ init_mathjax = function() {
 }
 init_mathjax();
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-    $("div.collapseheader").click(function () {
-    $header = $(this).children("span").first();
-    $codearea = $(this).children(".input_area");
-    console.log($(this).children());
-    $codearea.slideToggle(500, function () {
-        $header.text(function () {
-            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
-        });
-    });
-});
-});
-</script>
-
 
 
   <!-- http://t.co/dKP3o1e -->
@@ -1807,20 +1782,6 @@ jQuery(document).ready(function($) {
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://hummel.github.io/blog/2014/10/09/notebook example/">Blogging with IPython Notebooks</a>
-      </h1>
-      <p class="meta"><time datetime="2014-10-09T00:00:00" pubdate>Oct 09, 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>The following is a brief tutorial written for my students on grabbing FITS images from the Sloan Digitial Sky Survey then loading and displaying them in python using tools from the <a href="http://www.astropy.org/">Astropy</a> Project.  It should make for a good test case.  </p>
-<p><em>Everything below this point is an IPython notebook and ...</em></p></div>
-  <footer>
-    <a rel="full-article" href="http://hummel.github.io/blog/2014/10/09/notebook example/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
         <a href="http://hummel.github.io/blog/2014/10/04/first-post/">First Post</a>
       </h1>
       <p class="meta"><time datetime="2014-10-04T05:00:00" pubdate>Oct 04, 2014</time></p>
@@ -1844,9 +1805,6 @@ jQuery(document).ready(function($) {
           <a href="http://hummel.github.io/blog/2015/01/23/Maps with Python/">Making Maps with Python</a>
       </li>
       <li class="post">
-          <a href="http://hummel.github.io/blog/2014/10/09/notebook example/">Blogging with IPython Notebooks</a>
-      </li>
-      <li class="post">
           <a href="http://hummel.github.io/blog/2014/10/04/first-post/">First Post</a>
       </li>
     </ul>
@@ -1856,6 +1814,7 @@ jQuery(document).ready(function($) {
     <h1>Categories</h1>
     <ul id="recent_posts">
         <li><a href="http://hummel.github.io/category/misc.html">misc</a></li>
+        <li><a href="http://hummel.github.io/category/visualization.html">visualization</a></li>
     </ul>
   </section>
  
