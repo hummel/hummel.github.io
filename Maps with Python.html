@@ -32,17 +32,22 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <meta name="author" content="Jacob Hummel" />
-    <meta name="description" content="Jacob Hummel's Thoughts and Writings" />
+<meta name="author" content="Jacob Hummel" />
+<meta name="description" content="I made a map! I recently found a great tutorial on Beneath Data on how to visualize your location history from Google. I've been wanting to do something like this for a while, so I downloaded my location history for the past few years using Takeout, and made a ..." />
+<meta name="keywords" content="">
 <meta property="og:site_name" content="Jacob Hummel"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="Jacob Hummel"/>
-<meta property="og:description" content="Jacob Hummel's Thoughts and Writings"/>
+<meta property="og:title" content="Making Maps with Python"/>
+<meta property="og:description" content="I made a map! I recently found a great tutorial on Beneath Data on how to visualize your location history from Google. I've been wanting to do something like this for a while, so I downloaded my location history for the past few years using Takeout, and made a ..."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="http://localhost:8000"/>
+<meta property="og:url" content="http://localhost:8000/Maps with Python.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2015-01-23 04:00:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://localhost:8000/author/jacob-hummel.html">
+<meta property="article:section" content="misc"/>
 <meta property="og:image" content="//s.gravatar.com/avatar/f8072ec09a7106db46a1d078b3660448?s=120">
 
-  <title>Jacob Hummel</title>
+  <title>Jacob Hummel &ndash; Making Maps with Python</title>
 </head>
 <body>
   <aside>
@@ -83,86 +88,67 @@
 
 <article>
   <header>
-    <h2><a href="http://localhost:8000/visualization_contest.html#visualization_contest">Visualizing Science</a></h2>
-    <p>
-          Posted on May 27, 2015 in <a href="http://localhost:8000/category/visualization.html">visualization</a>
-
-
-
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <p>The past three years, the UT College of Natural Sciences has sponsored a science visualization contest.  Cosmological simulations appear to be quite popular, having been featured in <a href="https://cns.utexas.edu/news/visualizing-science-2013">both</a> <a href="https://cns.utexas.edu/news/visualizing-science-2014">previous</a> contests. Here's my entry for this year's contest:
-<img title="Zooming in from the cosmic web to individual stellar cores. 10,000,000X magnification." alt="Zooming in from the cosmic web to individual stellar cores. 10,000,000X magnification." src="/images/cosmic_structure_zoom.png"> <a href="/images/cosmic_structure_zoom.png">Click to embiggen.</a></p>
-<p>This image shows the formation of the first ...</p>
-      <br>
-      <a class="btn" href="http://localhost:8000/visualization_contest.html#visualization_contest">    Continue reading
-</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="http://localhost:8000/Maps with Python.html#Maps with Python">Making Maps with Python</a></h2>
+    <h1 id="Maps with Python">Making Maps with Python</h1>
     <p>
           Posted on January 23, 2015 in <a href="http://localhost:8000/category/misc.html">misc</a>
 
 
-
         &#8226; 1 min read
     </p>
   </header>
   <div>
-      <p>I made a map!  I recently found a great tutorial on <a href="http://beneathdata.com">Beneath Data</a> on how to visualize your location history from Google.  I've been wanting to do something like this for a while, so I downloaded my location history for the past few years using <a href="https://www.google.com/settings/takeout">Takeout</a>, and made a ...</p>
-      <br>
-      <a class="btn" href="http://localhost:8000/Maps with Python.html#Maps with Python">    Continue reading
-</a>
+    <p>I made a map!  I recently found a great tutorial on <a href="http://beneathdata.com">Beneath Data</a> on how to visualize your location history from Google.  I've been wanting to do something like this for a while, so I downloaded my location history for the past few years using <a href="https://www.google.com/settings/takeout">Takeout</a>, and made a quick plot of all the flights I've taken recently.</p>
+<p>To do this, you'll need the following Python packages:</p>
+<ul>
+<li><a href="http://matplotlib.org/">Matplotlib</a> + <a href="http://matplotlib.org/basemap">Basemap</a></li>
+<li><a href="http://www.numpy.org/">Numpy</a></li>
+<li><a href="http://pandas.pydata.org/">Pandas</a></li>
+<li><a href="https://pypi.python.org/pypi/Shapely">Shapely</a></li>
+<li><a href="https://pypi.python.org/pypi/Fiona">Fiona</a></li>
+<li><a href="https://pypi.python.org/pypi/descartes">Descartes</a></li>
+</ul>
+<p>Far and above the easiest way to acquire these is to use the <code>conda</code> package manager provided by <a href="https://store.continuum.io/cshop/anaconda/">Continuum Analytics</a> with the <a href="http://docs.continuum.io/anaconda/">Anaconda</a> Python Distribution. Once you've got Anaconda installed (which includes matplotlib, numpy and pandas), you can install (almost) all the necessary packages as follows:</p>
+<div class="highlight"><pre><span></span>conda install basemap shapely fiona
+</pre></div>
+
+
+<p>Unfortunately <code>descartes</code> isn't available in Continuum's official repositories, but it <em>is</em> available from the community repositories on <a href="binstar.org">binstar.org</a>. Go there, search for 'descartes', and install it from the repository of your choice or just do the following:</p>
+<p>On Linux:</p>
+<div class="highlight"><pre><span></span>      conda install -c https://conda.binstar.org/auto descartes
+</pre></div>
+
+
+<p>On Mac OS X:</p>
+<div class="highlight"><pre><span></span>      conda install -c https://conda.binstar.org/asmeurer descartes
+</pre></div>
+
+
+<p>With everything installed, it was easy to make a map showing all the flights I've taken in the past ~4 or so years by following this <a href="http://beneathdata.com/how-to/visualizing-my-location-history/">tutorial</a> (scroll down to the second half).  Awesome!</p>
+<p><img title="All flights in the past three years" alt="All flights in the past three years" src="/images/flights.png"></p>
+<p>My trip to Japan for the <a href="http://tpweb2.phys.konan-u.ac.jp/~FirstStar4/">First Stars IV</a> conference dominates the first map; zooming in to just North America helps a bit:</p>
+<p><img title="Western Hemisphere Flights" alt="Western Hemisphere Flights" src="/images/US_flights.png"></p>
   </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="http://localhost:8000/notebook example.html#notebook example">Blogging with IPython Notebooks</a></h2>
+  <div class="tag-cloud">
     <p>
-          Posted on October 09, 2014 in <a href="http://localhost:8000/category/misc.html">misc</a>
-
-
-
-        &#8226; 13 min read
     </p>
-  </header>
-  <div>
-      <p>The following is a brief tutorial written for my students on grabbing FITS images from the Sloan Digitial Sky Survey then loading and displaying them in python using tools from the <a href="http://www.astropy.org/">Astropy</a> Project.  It should make for a good test case.  </p>
-<p><em>Everything below this point is an IPython notebook and ...</em></p>
-      <br>
-      <a class="btn" href="http://localhost:8000/notebook example.html#notebook example">    Continue reading
-</a>
   </div>
-  <hr />
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'hummel';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
 </article>
-<article>
-  <header>
-    <h2><a href="http://localhost:8000/first-post.html#first-post">First Post</a></h2>
-    <p>
-          Posted on October 04, 2014 in <a href="http://localhost:8000/category/misc.html">misc</a>
-
-
-
-        &#8226; 1 min read
-    </p>
-  </header>
-  <div>
-      <h2>Hello World!</h2>
-<p>First post for my <a href="http://hummel.github.io">blog</a>. Let's do this!</p>
-      <br>
-      <a class="btn" href="http://localhost:8000/first-post.html#first-post">    Continue reading
-</a>
-  </div>
-</article>
-
-  <div class="pagination">
-  </div>
 
     <footer>
 <p>
